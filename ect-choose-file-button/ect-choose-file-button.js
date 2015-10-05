@@ -1,7 +1,7 @@
 angular.module('ect.directives.ectChooseFileButton', []).directive('ectChooseFileButton', ['$document', '$timeout', '$interval', function ($document, $timeout, $interval) {
     var counter = 0;
     return {
-        templateUrl: './12/ect-choose-file-button.html',
+        templateUrl: 'ect-choose-file-button.html',
         transclude: true,
         scope: {
             multiple: "@",
