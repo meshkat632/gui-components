@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <script>
+        var _name_ = 'I am chat frame';
+    </script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--
+    <style>
+
+        /*Clearing Floats*/
+        .cf:before, .cf:after{
+            content:"";
+            display:table;
+        }
+
+        .cf:after{
+            clear:both;
+        }
+
+        .cf{
+            zoom:1;
+        }
+        /* Form wrapper styling */
+        .form-wrapper {
+            width: 450px;
+            padding: 15px;
+            margin: 150px auto 50px auto;
+            background: #444;
+            background: rgba(0,0,0,.2);
+            border-radius: 10px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+        }
+
+        /* Form text input */
+
+        .form-wrapper input {
+            width: 330px;
+            height: 20px;
+            padding: 10px 5px;
+            float: left;
+            font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+            border: 0;
+            background: #eee;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .form-wrapper input:focus {
+            outline: 0;
+            background: #fff;
+            box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+        }
+
+        .form-wrapper input::-webkit-input-placeholder {
+            color: #999;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .form-wrapper input:-moz-placeholder {
+            color: #999;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .form-wrapper input:-ms-input-placeholder {
+            color: #999;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* Form submit button */
+        .form-wrapper button {
+            overflow: visible;
+            position: relative;
+            float: right;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            height: 40px;
+            width: 110px;
+            font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+            color: #fff;
+            text-transform: uppercase;
+            background: #d83c3c;
+            border-radius: 0 3px 3px 0;
+            text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+        }
+
+        .form-wrapper button:hover{
+            background: #e54040;
+        }
+
+        .form-wrapper button:active,
+        .form-wrapper button:focus{
+            background: #c42f2f;
+            outline: 0;
+        }
+
+        .form-wrapper button:before { /* left arrow */
+            content: '';
+            position: absolute;
+            border-width: 8px 8px 8px 0;
+            border-style: solid solid solid none;
+            border-color: transparent #d83c3c transparent;
+            top: 12px;
+            left: -6px;
+        }
+
+        .form-wrapper button:hover:before{
+            border-right-color: #e54040;
+        }
+
+        .form-wrapper button:focus:before,
+        .form-wrapper button:active:before{
+            border-right-color: #c42f2f;
+        }
+
+        .form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+            border: 0;
+            padding: 0;
+        }
+
+    </style>
+    -->
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <script src="ect-file-receiver.js"></script>
+    <script src="ect-choose-file-button.js"></script>
+
+
+        <script>
+        angular.module('myApp',['ect.directives.ectFileSender', 'ect.directives.ectFileReceiver', 'ect.directives.ectChooseFileButton']).controller('chatViewController', ['$scope', '$interval','$window','$timeout', function ($scope, $interval, $window,$timeout) {
+
+            $scope.data ='hi';
+            $scope.fileSelected = function(files){
+                console.log('fileSelected files',files);
+                files.forEach(function(jsfile){
+                    console.log('jsfile', jsfile,jsfile.name, jsfile.size);
+                });
+
+            };
+
+        }]);
+
+    </script>
+
+    <!--<script>
+        angular.module('transcludeExample', [])
+                .directive('pane', function(){
+                    return {
+                        restrict: 'E',
+                        transclude: true,
+                        scope: { title:'@' },
+                        template: '<div style="border: 1px solid black;">' +
+                        '<div style="background-color: gray">{{title}}</div>' +
+                        '<ng-transclude></ng-transclude>' +
+                        '</div>'
+                    };
+                })
+                .controller('ExampleController', ['$scope', function($scope) {
+                    $scope.title = 'Lorem Ipsum';
+                    $scope.text = 'Neque porro quisquam est qui dolorem ipsum quia dolor...';
+                }]);
+    </script>-->
+</head>
+<body >
+<!--<ect-file-sender></ect-file-sender>-->
+<div ng-app='myApp' ng-controller="chatViewController">{{message}}
+    <ect-choose-file-button on-select="fileSelected(files)" multiple>
+        Browse
+        <span class="glyphicon glyphicon-print"></span>
+    </ect-choose-file-button>
+    <ect-choose-file-button on-select="fileSelected(files)">
+        Browse2
+        <span class="glyphicon glyphicon-print"></span>
+    </ect-choose-file-button>
+    <ect-choose-file-button on-select="fileSelected(files)">
+        <span class="glyphicon glyphicon-print"></span>
+    </ect-choose-file-button>
+    <ect-choose-file-button></ect-choose-file-button>
+    <ect-choose-file-button>
+        <span class="glyphicon glyphicon-print"></span>
+    </ect-choose-file-button>
+</div>
+<!--
+
+<ect-choose-file-button>Browse</ect-choose-file-button>
+<ect-choose-file-button></ect-choose-file-button>
+
+<input class="btn btn-default" type="submit" value="hello">
+
+<button type="button" class="btn btn-primary">{{text}}
+    <span class="glyphicon glyphicon-print"></span>
+</button>
+</div>-->
+<!--
+
+<div ng-app='transcludeExample' ng-controller="ExampleController">
+    <input ng-model="title" aria-label="title"> <br/>
+    <textarea ng-model="text" aria-label="text"></textarea> <br/>
+    <pane title="{{title}}">{{text}}</pane>
+</div>
+-->
+<!--
+<ect-file-receiver></ect-file-receiver>
+-->
+<!--
+<form class="form-wrapper cf">
+    <input type="text" placeholder="Search here..." required>
+    <button type="submit">Search</button>
+</form>
+-->
+</body>
+
+</html>
