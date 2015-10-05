@@ -38,20 +38,54 @@
         }]);
 
     </script>
+    <style>
+
+
+
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-file input[type=file] {
+
+            position: absolute;
+            top: 0px;
+            right: 0px;
+
+            min-width: 100%;
+            min-height: 100%;
+            opacity: 0;
+            outline: none;
+            cursor: inherit;
+            display: block;
+        }
+
+
+    </style>
 </head>
 <body >
+<button type="file" class="btn btn-info btn-sm btn-file">Hello</button>
+
 <!--<ect-file-sender></ect-file-sender>-->
 <div ng-app='myApp' ng-controller="chatViewController">{{message}}
 
-    <script type="text/ng-template" id="templateId.html">
-        <p>This is the content of the template</p>
-    </script>
-    <div ng-include=" 'templateId.html' "></div>
 
+    <ect-choose-file-button on-select="fileSelected(files)" multiple>
+        <button type="file" class="btn btn-sm">
+            Browse
+            <span class="glyphicon glyphicon-print"></span>
+        </button>
+    </ect-choose-file-button>
+    <ect-choose-file-button on-select="fileSelected(files)" multiple>
+        <button type="file" class="btn btn-sm">
+            <span class="glyphicon glyphicon-print"></span>
+        </button>
+    </ect-choose-file-button>
     <ect-choose-file-button on-select="fileSelected(files)" multiple>
         Browse
         <span class="glyphicon glyphicon-print"></span>
     </ect-choose-file-button>
+    <!--
     <ect-choose-file-button on-select="fileSelected(files)">
         Browse2
         <span class="glyphicon glyphicon-print"></span>
@@ -63,6 +97,8 @@
     <ect-choose-file-button>
         <span class="glyphicon glyphicon-print"></span>
     </ect-choose-file-button>
+    -->
+
 </div>
 </body>
 </html>

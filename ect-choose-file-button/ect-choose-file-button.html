@@ -1,11 +1,11 @@
-<span id={{id}}>
+<span class="sendFileContainer">
 <style>
-
-    .btn-file {
+    .sendFileContainer {
         position: relative;
         overflow: hidden;
+        /*border: 2px solid red;*/
     }
-    .btn-file input[type=file] {
+    .sendFileContainer input[type=file] {
 
         position: absolute;
         top: 0px;
@@ -19,32 +19,8 @@
         display: block;
     }
 
-
-    /*
-    #{{id}}{
-
-    }
-    #{{id}} button {
-        position: relative;
-        overflow: hidden;
-    }
-    #{{id}} button input[type=file] {
-
-        position: absolute;
-        top: 0px;
-        right: 0px;
-
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        cursor: inherit;
-        display: block;
-    }
-    */
 </style>
-    <button type="file" class="btn btn-info btn-sm btn-file">
-        <ng-transclude></ng-transclude>
-        <input class='sendFile' type="file" >
-    </button>
+<ng-transclude></ng-transclude>
+<input class='sendFile' type="file" >
 </span>
+
