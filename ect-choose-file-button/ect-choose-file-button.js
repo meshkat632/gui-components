@@ -18,7 +18,7 @@ angular.module('ect.directives.ectChooseFileButton', []).directive('ectChooseFil
     strVar += "        min-height: 100%;";
     strVar += "        opacity: 0;";
     strVar += "        outline: none;";
-    strVar += "        cursor: inherit;";
+    strVar += "        cursor: pointer;";
     strVar += "        display: block;";
     strVar += "    }";
     strVar += "";
