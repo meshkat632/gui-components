@@ -3,14 +3,12 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-
-
-
-
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!--
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    -->
+
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
     <script src="ect-choose-file-button.js"></script>
@@ -19,7 +17,7 @@
         <script>
         angular.module('myApp',['ect.directives.ectChooseFileButton']).controller('chatViewController', ['$scope', '$interval','$window','$timeout', function ($scope, $interval, $window,$timeout) {
 
-            $scope.data ='hi';
+            $scope.message ='hi';
             $scope.fileSelected = function(files){
                 console.log('fileSelected files',files);
                 files.forEach(function(jsfile){
