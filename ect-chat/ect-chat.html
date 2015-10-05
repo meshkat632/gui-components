@@ -1,0 +1,129 @@
+<span class="chat">
+
+<style type="text/css">
+    .received {
+        position: relative;
+        text-align: left;
+        font-family: arial;
+        color: black;
+        font-size: 9pt;
+        margin: 5px 5px 5px 5px;
+        padding: 5px;
+        overflow-x: visible;
+        background-color: rgba(211, 227, 250, 1);
+        border-radius: 5px;
+        border: 1px solid lightgray;
+    }
+
+    .received:after, .received:before {
+        content: "";
+        bottom: 100%;
+        left: 5%;
+        display: block;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .received:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-bottom-color: rgba(211, 227, 250, 1);
+        border-width: 10px;
+        margin-left: -10px;
+    }
+    .received:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-bottom-color: lightgray;
+        border-width: 11px;
+        margin-left: -11px;
+    }
+
+    /*
+    .send {
+        position: relative;
+        text-align: right;
+        font-family: arial;
+        color: black;
+        font-size: 9pt;
+        margin: 5px 5px 15px 5px;
+        padding: 5px;
+        overflow-x: visible;
+        background-color: rgba(255, 217, 179, 1);
+        border-radius: 5px;
+        border: 1px solid lightgray;
+    }
+
+    .send:after, .send:before {
+        top: 100%;
+        left: 95%;
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .send:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-top-color: rgba(255, 217, 179, 1);
+        border-width: 10px;
+        margin-left: -10px;
+    }
+    .send:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-top-color: lightgray;
+        border-width: 11px;
+        margin-left: -11px;
+    }
+    */
+
+    .chatpanel-body {
+        background-color: white;
+        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: visible;
+        height: 400px;
+    }
+
+
+
+</style>
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+                <span><span class="glyphicon glyphicon-comment"></span> <b>with:{{vm.to}}</b>
+                    <!--
+                    <button type="button" class="btn btn-default btn-xs" ng-click="vm.close();">
+                        Close
+                    </button>
+                    -->
+                </span>
+        </div>
+        <div id="{{vm.id}}" class="chatpanel-body">
+            <div data-ng-repeat="item in vm.values track by $index">
+                <p class="{{item.dir}}">{{item.msg}}</p>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="input-group">
+                <input id="btn-input" type="text" class="form-control input-sm" data-ng-model="vm.input" data-ng-keypress="vm.myFunct($event); $event.stopPropagation();" placeholder="Type your message here...">
+	                <span class="input-group-btn">
+                        <button type="button" class="btn btn-info btn-sm" data-ng-click="vm.sendFile();">
+                            <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+                        </button>
+	                    <button type="button" class="btn btn-info btn-sm" data-ng-click="vm.send(vm.input);">
+                            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                        </button>
+	                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+</span>
+
