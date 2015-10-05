@@ -13,18 +13,22 @@
 
 
     <script src="http://meshkat632.github.io/gui-components/ect-choose-file-button/ect-choose-file-button.js"></script>
+    <script src="ect-chat.js"></script>
 
 
         <script>
-        angular.module('myApp',['ect.directives.ectChooseFileButton']).controller('chatViewController', ['$scope', '$interval','$window','$timeout', function ($scope, $interval, $window,$timeout) {
+        angular.module('myApp',['ect.directives.ectChooseFileButton','ect.directives.ectChat']).controller('chatViewController', ['$scope', '$interval','$window','$timeout', function ($scope, $interval, $window,$timeout) {
 
-            $scope.message ='hi';
-            $scope.fileSelected = function(files){
-                console.log('fileSelected files',files);
-                files.forEach(function(jsfile){
-                    console.log('jsfile', jsfile,jsfile.name, jsfile.size);
-                });
+            $scope.messages = [
+                { from:'Alice', msg:{ type:'CHAT', text:'hello from Alice'}},
+                { from:'Bob', msg:{ type:'CHAT', text:'hello Alice how are you?'}},
+                { from:'Bob', msg:{ type:'CHAT', text:'Are you free'}},
+                { from:'Bob', msg:{ type:'FILE', filetransfer: {}}},
+            ];
 
+            $scope.sendMessage = function(message){
+                console.log('page sendMessage', message)
+                $scope.messages.push(message);
             };
 
         }]);
@@ -33,7 +37,9 @@
 </head>
 <body >
 <!--<ect-file-sender></ect-file-sender>-->
-<div ng-app='myApp' ng-controller="chatViewController">{{message}}
+<div ng-app='myApp' ng-controller="chatViewController">
+    <ect-chat messages="messages" on-send-message="sendMessage(message)"></ect-chat>
+    <!--
     <ect-choose-file-button on-select="fileSelected(files)" multiple>
         <button type="file" class="btn btn-sm">
             Browse
@@ -49,6 +55,7 @@
         Browse
         <span class="glyphicon glyphicon-print"></span>
     </ect-choose-file-button>
+    -->
 </div>
 </body>
 </html>

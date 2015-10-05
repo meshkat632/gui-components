@@ -16,10 +16,11 @@ angular.module('ect.directives.ectChooseFileButton', []).directive('ectChooseFil
     strVar += "";
     strVar += "        min-width: 100%;";
     strVar += "        min-height: 100%;";
-    strVar += "        opacity: 0;";
+    strVar += "        opacity: 1;";
     strVar += "        outline: none;";
     strVar += "        cursor: pointer;";
     strVar += "        display: block;";
+    strVar += "        background: red;";
     strVar += "    }";
     strVar += "";
     strVar += "<\/style>";
