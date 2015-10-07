@@ -12,25 +12,25 @@ var user = {
 export class WebAction{
     constructor() {
 
-        jquery('body').append('<div class="appIcon">Hello I am the notify:</div>');
+        //jquery('body').append('<div class="appIcon">Hello I am the notify:</div>');
 
     }
 
     disable() {
 
-        jquery('.appIcon').html('disabled');
+        //jquery('.appIcon').html('disabled');
     }
 
     enable () {
-        jquery('.appIcon').html('enabled');
+        //jquery('.appIcon').html('enabled');
     }
 
     setIcon(details, callback){
-        jquery('.appIcon').html('setIcon details:'+JSON.stringify(details));
+        //jquery('.appIcon').html('setIcon details:'+JSON.stringify(details));
     }
 
     reload(){
-        console.error('WebAction reload not yet implemented');
+       // console.error('WebAction reload not yet implemented');
     }
 
 }

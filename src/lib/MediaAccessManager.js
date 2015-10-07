@@ -34,8 +34,6 @@ var videoElement = undefined;
 let MediaAccessManager = {
     "init": function ($document) {
         videoElement = $document.querySelector('video');
-        if(videoElement == null)
-            console.error('a vedio element is needed!');
     },
     "ask": ask,
     "start": start,
