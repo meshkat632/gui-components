@@ -1,0 +1,61 @@
+<div class="panel mypage">
+    <!--
+    <div class="mypage-header">
+        <div class="panel-heading">Panel heading without title</div>
+    </div>
+    -->
+    <div class="mypage-body">
+        <div ng-repeat="message in messages">
+            <ect-message message="message"></ect-message>
+        </div>
+        <!--
+        <div class="body-content">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="message in messages">
+                        {{message}}
+                </li>
+                <!--
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+
+
+            </ul>
+        </div>
+        -->
+    </div>
+    <div class="mypage-footer">
+        <div class="panel-footer">
+            <div class="input-group">
+                <input id="btn-input" type="text" class="form-control input-sm" ng-model="textInput" placeholder="Type your message here..." ng-keypress="onKeyPress($event)">
+	                <span class="input-group-btn">
+
+                        <ect-choose-file-button on-select="fileSelected(files)" multiple>
+                            <button type="file" class="btn btn-sm">
+                                File<span class="glyphicon glyphicon-open-file"></span>
+                            </button>
+                        </ect-choose-file-button>
+                        <button type="button" class="btn btn-info btn-sm" data-ng-click="sendMessage(textInput);">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+	                </span>
+            </div>
+        </div>
+    </div>
+</div>

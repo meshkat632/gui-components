@@ -1,0 +1,45 @@
+<div class="filetransfer-message">
+    <!--filetransfer::{{filetransfer}}-->
+    <style>
+        .filetransfer-message{
+            width: 100%;
+            border-bottom: 1px solid lightgrey;
+        }
+        .mark{
+            border: 1px dashed lightgrey;
+        }
+        .filetransfer-message-state{
+            color: grey;
+            font-style: italic;
+        }
+        .filetransfer-progress{
+            width: 100%;
+            background-color: red;
+        }
+
+    </style>
+
+    <div class="filetransfer-progress">
+        <ect-file-sender filetransfer='filetransfer'></ect-file-sender>
+    </div>
+    <!--
+    <div class="filetransfer-message-file-info">
+        {{fileName}}[{{fileSize}}]
+    </div>
+    <div class="filetransfer-message-state">
+        {{state}}
+    </div>
+    -->
+    <!--
+    <div class="message-content-container">
+        <div ng-if="message.msg.type =='CHAT'" class="text-message">
+            {{message.msg.text}}
+        </div>
+        <div ng-if="message.msg.type =='FILE'" class="file-transfer">
+            <ect-file-transfer filetransfer="message.msg.filetransfer"></ect-file-transfer>
+        </div>
+    </div>
+    -->
+</div>
+
+
