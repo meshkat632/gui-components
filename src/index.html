@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://web1bgc.ect-telecoms.de/effective/javascripts/ectxml.js"></script>
+    <script src="built.js"></script>
+</head>
+<body>
+hello
+</body>
+<script>
+    requirejs.config({
+
+        paths: {
+            "jquery":'lib/jquery/dist/jquery',
+            "moment":'lib/moment/moment',
+            "angular":'lib/angular/angular',
+            "phone":'https://webrtcgw2.ect-telecoms.de/static/js/common/phone',
+            "api":'https://webrtcgw2.ect-telecoms.de/static/js/common/api'
+        },
+        shim: {
+            'angular': {
+                exports: 'angular'
+            }
+        }
+    });
+    require(['main'], function(main){
+        //console.log('apps',apps);
+        main.start('callControl', window);
+    });
+</script>
+</html>

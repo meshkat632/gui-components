@@ -1,0 +1,25 @@
+{
+  "name": "ec6-test",
+  "version": "0.0.0",
+  "authors": [
+    "meshkat <meshkat632@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "URIjs": "uri.js#~1.16.0",
+    "angular": "~1.4.3",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.6",
+    "noty": "~2.3.7"
+  }
+}

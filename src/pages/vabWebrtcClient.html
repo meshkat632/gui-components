@@ -1,0 +1,87 @@
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vabWebrtcClient</title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="https://web1bgc.ect-telecoms.de/effective/javascripts/ectxml.js"></script>
+    <script src="../built.js"></script>
+    <style data-managed="true" title="bodyStyle">
+        body{
+            width: 400px;
+            height: 400px;
+            background-color: lightgrey;
+            border: 1px dashed lightgrey;
+        }
+        .body{
+            width: 400px;
+            height: 400px;
+            background-color: lightgrey;
+            border: 1px dashed lightgrey;
+        }
+        #body{
+            width: 400px;
+            height: 400px;
+            background-color: lightgrey;
+            border: 1px dashed lightgrey;
+        }
+    </style>
+</head>
+<body>
+<!--
+src/main/javascript/src/pages/ngTestApp.html
+<div ng-controller="appController">
+    data::{{data}}
+</div>
+<div ng-controller='appController'>
+    <ng-include src='"template/accordion/accordion-group.html"'></ng-include>
+    <div>{{data}}</div>
+</div>
+
+-->
+
+</body>
+<script>
+    requirejs.config({
+
+        paths: {
+            "angular":'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min',
+            "jquery":'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min',
+            "moment":'http://momentjs.com/downloads/moment-with-locales.min',
+            "noty":'../lib/noty/js/noty/packaged/jquery.noty.packaged',
+            "phone":'https://webrtcgw2.ect-telecoms.de/static/js/common/phone',
+            "api":'https://webrtcgw2.ect-telecoms.de/static/js/common/api',
+            "ect": '../lib/ect'
+        },
+        shim: {
+            'angular': {
+                exports: 'angular'
+            },
+            jquery:{
+                exports: 'jquery'
+            },
+            noty:{
+                deps: ['jquery'],
+                exports: 'noty'
+            }
+        }
+    });
+    requirejs(['apps/vabWebrtcClient'], function(vabWebrtcClient){
+
+        //noty({text: 'vabWebrtcClient '+moment()});
+        vabWebrtcClient.start(document);
+        //main.start('vabWebrtcClient', document);
+        /*
+        angular.module('myApp',[]).controller('appController', ['$scope', '$interval','$window','$location','$timeout',function ($scope, $interval, $window,$location,$timeout) {
+            $scope.data= 'hello';
+        }]);
+        angular.bootstrap(document, ['myApp']);
+        */
+
+
+    });
+
+
+</script>
+</html>
