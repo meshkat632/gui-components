@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Examples : jquery-hover-dropdown-box</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="jquery-hover-dropdown-box.js"></script>
+    <link rel="stylesheet" href="jquery-hover-dropdown-box.css" />
+</head>
+<body>
+
+
+
+
+    <div id="example_inline_box"></div>
+
+    <!-- Example code (Inline) -->
+    <script type="text/javascript">
+        $(function(){
+            $('#example_inline_box').hoverDropdownBox({
+                title: 'Example',
+                items: {
+                    "Item A": {
+                        color: "#e74c3c",
+                        inputType: "text",
+                        inputChecked: true,
+                        inputPlaceholder: "Example input"
+                    },
+                    "Item B": {
+                        color: "#f1c40f",
+                        inputType: "checkbox",
+                        inputChecked: false
+                    },
+                    "Item C": {
+                        color: "#2ecc71",
+                        inputType: "checkbox",
+                        inputChecked: false
+                    },
+                    "Item D": {
+                        color: "#3498db",
+                        inputType: "checkbox",
+                        inputChecked: false
+                    },
+                    "Item E": {
+                        color: "#7f8c8d",
+                        inputType: "checkbox",
+                        inputChecked: true
+                    }
+                },
+                footer: {
+                    label: "+ New Item",
+                    inputPlaceholder: "Input item name",
+                    inputType: "text",
+                },
+                onLabelClick: function(key, item){
+                    item.checked( !item.checked() );
+                },
+                onChange: function(key, item, value){
+                    window.alert("onChange: " + key + " - " + value );
+                },
+                onTextInput: function(key, item, value){
+                    window.alert("onTextInput: " + key + " - " + value );
+                    if( key == 'footer' ) {
+                        console.log(this);
+                        this.getHoverDropdownBox().addItem( value, {
+                            color: "#34495e",
+                            type: "checkbox",
+                            selected: true
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    <!---->
+
+    <h2>Example - Hover with button</h2>
+
+
+    <style>
+        .overlay-container{
+            background-color: lightgrey;
+            display: none;
+            position: absolute;
+        }
+    </style>
+    <span class="example_follow_btn" class="btn" style="border: 1px solid red">Follow
+        <div class="overlay-container" style="border: 1px dashed lightgrey; width: 200px; height: 300px">
+        I am the overlay1
+        </div>
+    </span>
+    <span class="example_follow_btn" class="btn" style="border: 1px solid red">Follow
+        <div class="overlay-container" style="border: 1px dashed lightgrey; width: 200px; height: 300px">
+        I am the overlay 2
+        </div>
+    </span>
+
+
+    <!-- Example code (Hover) -->
+    <script type="text/javascript">
+        $('.example_follow_btn').click(function () {
+            console.log('on click show popup');
+            $('.overlay-container').show();
+        });
+    </script>
+</body>
+</html>
